@@ -1,5 +1,8 @@
 # FoodStop
 
+### Deployed WebPage:
+http://foodstopapp.herokuapp.com
+
 
 ![](gitpics/pc1.png)
 ![](gitpics/pc2.png)
@@ -17,10 +20,10 @@ IPAD             |  IPAD
 ![](gitpics/pad1.png)  |  ![](gitpics/pad2.png)
 
 
-## How to Run it:
+# How to Run it:
 ### Environment Requirement
 ```bash
-`<npm -install>`   # Bash Terminal
+npm -install   # Bash Terminal
 ```
 
 ```bash
@@ -30,26 +33,23 @@ IPAD             |  IPAD
 MONGO_PASSWORD=foodstop
 PASSPORT_KEY='HELLO'`
 ```
-
+### Run on Local Server
 Run server with command:
 ```bash
 node runweb.js
 ```
-### Deployed WebPage:
-http://foodstopapp.herokuapp.com
 
-
-## Database Access
+### Database Access
 ```
 mongodb+srv://admin:foodstop@cluster0.ci1k6.mongodb.net/test
 ```
 
 # Development Process
-<a "FoodStop_Architecture.pdf" href="/FoodStop_Architecture.pdf"></a>
+[a relative link](/FoodStop_Architecture.pdf)
 
 
 
-## Login Details
+# Login Details
 
 ### "Register new Customer enabled"
 
