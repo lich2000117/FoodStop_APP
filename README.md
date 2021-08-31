@@ -45,8 +45,8 @@ mongodb+srv://admin:foodstop@cluster0.ci1k6.mongodb.net/test
 ```
 
 # Development Process
-<a href="/FoodStop_Architecture.pdf" class="image fit"><img src="FoodStop_Architecture.pdf" alt=""></a>
-"FoodStop_Architecture.pdf"
+<a "FoodStop_Architecture.pdf" href="/FoodStop_Architecture.pdf"></a>
+
 
 
 ## Login Details
