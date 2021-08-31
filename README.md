@@ -1,19 +1,18 @@
 # FoodStop
 
 
+![](gitpics/pc1.png)
+![](gitpics/pc2.png)
+![](gitpics/pc3.png)
+![](gitpics/pc4.png)
+
 PC             |  Mobile
 :-------------------------:|:-------------------------:
-![](gitpics/pc1.png)  |  ![](gitpics/iphone1.png)
+![](gitpics/iphone1.png)  |  ![](gitpics/iphone2.png)
 PC             |  Mobile
 :-------------------------:|:-------------------------:
-![](gitpics/pc2.png)  |  ![](gitpics/iphone2.png)
-PC             |  Mobile
-:-------------------------:|:-------------------------:
-![](gitpics/pc3.png)  |  ![](gitpics/iphone3.png)
-PC             |  Mobile
-:-------------------------:|:-------------------------:
-![](gitpics/pc4.png)  |  ![](gitpics/iphone4.png)
-PC             |  Mobile
+![](gitpics/iphone3.png)  |  ![](gitpics/iphone4.png)
+IPAD             |  IPAD
 :-------------------------:|:-------------------------:
 ![](gitpics/pad1.png)  |  ![](gitpics/pad2.png)
 
@@ -45,6 +44,9 @@ http://foodstopapp.herokuapp.com
 mongodb+srv://admin:foodstop@cluster0.ci1k6.mongodb.net/test
 ```
 
+# Development Process
+<a href="/FoodStop_Architecture.pdf" class="image fit"><img src="FoodStop_Architecture.pdf" alt=""></a>
+"FoodStop_Architecture.pdf"
 
 
 ## Login Details
@@ -100,8 +102,6 @@ password    TestVan9
 ```
 
 
-# Development Process
-"FoodStop_Architecture.pdf"
 
 ## Contributes:
 ### ****** Chenghao Li :
