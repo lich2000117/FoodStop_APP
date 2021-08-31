@@ -1,22 +1,27 @@
-# FoodStop
+# FoodStop Web APP
+An interactive Online Food-Ordering Services for both customers and vendor interface.
+The App uses MangoDB, CSS, HTML, JavaScript, nodeJS as the development tools.
 
-### Deployed WebPage:
+
+# Deployed WebPage:
 http://foodstopapp.herokuapp.com
 
 
+# Development Report
+[FoodStop Project Explained](/FoodStop_Architecture.pdf)
+
+
+## Pictures:
 ![](gitpics/pc1.png)
 ![](gitpics/pc2.png)
 ![](gitpics/pc3.png)
 ![](gitpics/pc4.png)
 
-PC             |  Mobile
+Responsive Design             |  Mobile
 :-------------------------:|:-------------------------:
 ![](gitpics/iphone1.png)  |  ![](gitpics/iphone2.png)
-PC             |  Mobile
-:-------------------------:|:-------------------------:
 ![](gitpics/iphone3.png)  |  ![](gitpics/iphone4.png)
-IPAD             |  IPAD
-:-------------------------:|:-------------------------:
+Responsive Design             |  IPAD
 ![](gitpics/pad1.png)  |  ![](gitpics/pad2.png)
 
 
@@ -25,7 +30,6 @@ IPAD             |  IPAD
 ```bash
 npm -install   # Bash Terminal
 ```
-
 ```bash
 ".env:"    # Create A File named".env"
 # Entering:
@@ -38,23 +42,12 @@ Run server with command:
 ```bash
 node runweb.js
 ```
-
 ### Database Access
 ```
 mongodb+srv://admin:foodstop@cluster0.ci1k6.mongodb.net/test
 ```
 
-# Development Process
-[a relative link](/FoodStop_Architecture.pdf)
-
-
-
-# Login Details
-
-### "Register new Customer enabled"
-
-## Vendor login:
-
+# Vendor login UserName and Passwords:
 ### Test Van 1
 ```
 username    Test Van 1
@@ -103,7 +96,7 @@ password    TestVan9
 
 
 
-## Contributes:
+# Big Thanks To:
 ### ****** Chenghao Li :
  * lich2000117@gmail.com
  * Chenghaol1@student.unimelb.edu.au <br />
