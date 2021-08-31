@@ -1,0 +1,80 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+
+
+h2{
+  font-size: 70px;
+}
+
+/*Input Box Container*/
+.loginBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-left: 10%;
+  padding-right:10%;
+  justify-content: space-between;
+}
+
+/*Input Box Style*/
+input {
+  justify-content: center;
+  color: black;
+  border: none;
+  width: 300px;
+  padding-left: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  height: 40px;
+  font: 800;
+}
+label,::placeholder{
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: large;
+  font-family: 'Pangolin', cursive;
+}
+
+.btn {
+  padding-top: 15px;
+  width: 300px;
+  height: auto;
+  margin-top: 20px;
+  height: 60px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  text-shadow: none;
+  border: 1px solid #fff;
+  font-size: 18px;
+  border-radius: 6px;
+  background-color: #fff;
+
+}
+
+
+/*Responsive Design*/
+
+@media screen and (max-width: 768px) {	/* for small phones */
+
+  .btn {      /* flow food list into four columns */
+      width: 90%;
+      align-content: center;
+      font-size: 15px;
+  }
+  input {
+    width: 90%;
+  }
+  h2{
+    font-size: 35px;
+  }
+}
+
+@media screen and (min-width: 1000px) {	/* for tablets */
+
+  .btn {      /* flow food list into four columns */
+      width: 90%;
+  }
+
+}

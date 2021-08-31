@@ -1,0 +1,33 @@
+  <script>
+    function orderAlert(cart) {
+      if(cart){
+        alert("Your Order has been placed!"); 
+      }
+    }
+    </script>
+  
+  <link href="/css/cart_detail.css" rel="stylesheet">
+    <div class="jumbotron">
+        <center><h1>Shopping Cart</h1></center>
+        <br>
+        <hr class="featurette-divider">
+        <div class = "grid-container">
+            {{#each cart}}
+              <div class = "grid-item">
+                    <img class="itemImage" src="/{{this.item.picture}}" alt="Food Image">
+                    <p class="item-name">{{this.item.name}}</p>
+                    <p class="text">Price: ${{this.item.price}}</p>
+                    <span class="text">Quantity: {{this.quantity}}</span>
+              </div>
+            {{/each}}
+        </div>
+        <hr>
+        <center><h1>Total Price: $ {{total}}.00</h1></center>
+            <center><a href="./menu" class="btn btn-primary" >Continue Shopping &laquo;</a></center>
+            <br>
+            <form action="./createOrder" method="post">
+              <center><button type="submit" class="btn btn-primary" onclick="orderAlert({{cart}})">Submit Order &raquo;</button></center>
+            </form>
+    </div>
+          
+        

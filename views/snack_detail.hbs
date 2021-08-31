@@ -1,0 +1,37 @@
+  <link href="/css/list_page.css" rel="stylesheet">
+      <div class="container marketing">
+        <br>
+        <hr>
+        <center><h1> Detail </h1></center>
+    
+        <hr >
+        <div class = "jumbotron">
+          <div class="row featurette">
+            <div class="col-md-7">
+              <h1>{{snack.name}}</h2>
+                <h1><span class="text">$ {{snack.price}}</span></h1>
+              <p class="lead">{{snack.description}}</p>
+            </div>
+            <div class="col-md-5">
+              <img class="featurette-image img-responsive center-block" src="/{{snack.picture}}" alt="Food Image" style = "width: 100%;height: 100%;">
+            </div>
+          </div>
+        </div>
+      <center>
+        {{#ifEquals type "private"}}
+          <form action="../addCart/{{snack.snack_id}}" method="post">
+                <button type="submit" onclick="orderAlert()" class="btn btn-primary btn2">Add to Cart</button> 
+          </form>
+        {{/ifEquals}}
+        <a href="javascript:history.back()" class="btn btn-primary btn2">Go Back</a> 
+      </center>
+</div>
+
+      <hr class="featurette-divider">
+
+<script>
+  function orderAlert()
+  {
+      alert("Success Added To Cart!");
+  }
+</script>

@@ -1,0 +1,129 @@
+
+
+  <link href="/css/Hub.css" rel="stylesheet">
+
+
+  <!--Nav Bar Contents in father html-->
+  <body>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="container">
+      <h1 style="font-weight:1000">CUSTOMER CENTER</h1>
+      <hr class="featurette-divider">
+      <div class="jumbotron" >
+          <h1 style="font-weight:1000">{{customer.firstName}} {{customer.lastName}}</h1> 
+          <h1> Welcome Back!</h1>
+          <div class="jumbotron" >
+        <br>
+        <div class="container">
+              <p style="font-weight:400;";>Email: {{ customer.email}}</p>
+              <br>
+              <p style="font-weight:400;";>Total Snacks Ordered :   <span style="font-weight:600; font-size:xxx-large; color:rgba(28, 89, 255, 0.589)">  {{ customer.__v}}</span></p> 
+              <br>
+            </div>
+            <a class="btn btn-primary" href="/customer/edit_profile" role="button" style="width: 50%;left:0; ">Edit My Detail &raquo;</a>
+            <a class="btn btn-primary" href="/customer/change_password" role="button" style="width: 50%;left:0; ">Change Password &raquo;</a>
+        </div>
+        
+        
+        <hr class="featurette-divider">
+        <center><a class="btn btn-primary" href="/home" role="button" style="width: 90%">Order Now &raquo;</a></center>
+        <br>
+      </div>
+    </div>
+
+    {{!-- outstanding orders --}}
+      <div class="container">
+        <h1 style="font-weight:1000">Active Orders</h1>
+        <hr class="featurette-divider">
+        <!--row of columns -->
+        <div class="jumbotron" >
+          <div>
+            {{#if orders}}
+              <ul class = "item" style="flex-direction:column;">
+                {{#each orders}}
+                  {{#if (IfinProgress this.status)}}
+                    <div class="item">
+                      <a href="/customer/allorders/{{this._id}}">
+                        <ul class="item">
+                            <div class="item" style="background:none text-align:center">
+                              
+                              <h3 class=>VAN: {{this.van_id}}</h3>
+
+                              {{#ifEquals this.status "outstanding"}}
+                                <h1 style="color:rgb(88, 255, 82)" >OUTSTANDING</h1>
+                              {{/ifEquals}}
+                              {{#ifEquals this.status "fulfilled"}}
+                                <h1 style="color:rgb(68, 81, 255)" >FULFILLED</h1>
+                              {{/ifEquals}}
+                              {{#ifEquals this.status "complete"}}
+                                <h1 style="color:black" >COMPLETE</h1>
+                              {{/ifEquals}}
+                              {{#ifEquals this.status "cancelled"}}
+                                <h1 style="color:rgb(255, 83, 83)" >CANCELLED</h1>
+                              {{/ifEquals}}
+
+                              
+                              <h4 class="time">{{prettifyDate this.timestamp}}</h4>
+
+                              <center><p>Total Price: ${{this.total}}.00</p></center>
+                            </div>
+                            {{#each this.goods}}
+                              <div class = "item" style="padding: 5px; margin:5px; ">
+                                    <img class="itemImage" src="/{{this.item.picture}}" alt="Food Image">
+                                    <p>{{this.item.name}}</p>
+                                    <p>${{this.item.price}}</p>
+                                    <p>Quantity: {{this.quantity}}<p>
+                              </div>
+                            {{/each}}
+                        </ul>
+                          
+                      </a>
+                    </div>
+                    {{/if}}
+                  {{/each}}
+                </ul>
+            {{else}}
+                <p>No Active Orders.</p>
+            {{/if}}
+          </div>
+        </div> 
+      </div>
+
+    {{!-- Lower Part Functionality --}}
+      <div class="container">
+        <h1 style="font-weight:1000">Others</h1>
+        <hr class="featurette-divider">
+        <center>
+          <!--row of columns -->
+          <div class="jumbotron" >
+            <div class="row">
+              <div class="col-md-4">
+                  <h2>Order Now</h2>
+                  <br>
+                  <a class="btn btn-primary" href="/customer/menu/" role="button">Menu &raquo;</a>
+              </div>
+              <div class="col-md-4"></div>
+              <div class="col-md-4">
+                <h2>Orders History</h2>
+                <br>
+                <a class="btn btn-primary" href="/customer/allorders" role="button">Show Orders &raquo;</a>
+              </div>
+            </div>
+          </div> 
+        </center>
+        
+      <center>
+      <div class="jumbotron" >
+        <form action="/customer/logout" method="post">
+          <button class="btn btn-primary" role="button" onclick="return confirm('Log Out Now?')" style="border:none;color:white;background-color:rgb(168, 29, 29);">Log Out</button>
+        </form>
+      </div>
+    </center>
+      </div>
+
+
+    </div> <!-- /container -->
+    
+  </body>
+</html>
+<!--footer contents in father html-->

@@ -1,0 +1,33 @@
+<!DOCTYPE html>   
+<html>   
+<head>  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+  <title> Customer Login </title>  
+  <link href="/css/loginPage.css" rel="stylesheet">
+  
+</head>    
+<body>   
+  <div class="container">
+    <div class="jumbotron"> 
+    <center> 
+        <h2> Vendor Login </h2> 
+    </center>   
+    {{!-- POST /vendor/login --}}
+    <form  method="post" action="/vendor/login">  
+        <div class="loginBox">   
+          
+            <label>USERNAME</label>   
+            <input type="text" placeholder="" name="name" required>  
+            <label>PASSWORD</label>   
+            <input type="password" placeholder="" name="password" required>
+            <br>
+            <a href="/contact"> <b>Forgot password? </b></a>   
+            <button type="submit" class="btn btn-lg btn-default">Login</button>  
+            <center> <br><a href="/contact">Register By Contacting US</a> </center> 
+        </div>   
+    </form>  
+    </div>   
+    </div>
+</body>     
+</html>  

@@ -1,0 +1,77 @@
+
+
+
+  <link href="/css/list_page.css" rel="stylesheet">
+
+  {{#ifEquals type "vendor"}}
+        <script src="/js/vendor.js"></script>
+        <script>
+          hideNav()
+        </script>
+      {{/ifEquals}}
+
+
+  <br><br>
+      <div class="jumbotron">
+        <center><h1>Order Detail</h1>
+        <h3>Time: {{prettifyDate order.timestamp}}</h3>
+        {{#ifEquals type "vendor"}}
+          <h3>Customer: {{order.user_id}}</h3>
+        {{/ifEquals}}
+          <h3>Van: {{order.van_id}}</h3>
+
+        {{#ifEquals order.status "outstanding"}}
+          <h1 style="color:rgb(88, 255, 82)" >OUTSTANDING</h1>
+        {{/ifEquals}}
+        {{#ifEquals order.status "fulfilled"}}
+          <h1 style="color:rgb(68, 81, 255)" >FULFILLED</h1>
+        {{/ifEquals}}
+        {{#ifEquals order.status "complete"}}
+          <h1 style="color:black" >COMPLETE</h1>
+        {{/ifEquals}}
+        {{#ifEquals order.status "cancelled"}}
+          <h1 style="color:rgb(255, 83, 83)" >CANCELLED</h1>
+        {{/ifEquals}}
+
+
+        </center>
+              <ul class="item" style="padding:5px">
+            {{#each order.goods}}
+                <div class = "item" style="padding: 5px; margin:5px">
+                    <img class="itemImage" src="/{{this.item.picture}}" alt="Food Image">
+                    <p class="item-name">{{this.item.name}}</p>
+                    <p class="text">Price: ${{this.item.price}}</p>
+                    <span class="text">Quantity: {{this.quantity}}</span>
+                </div>
+            {{/each}}
+            </ul>
+      </div>
+        
+      {{!-- Check if Customer or Vendor is currently accessing  this page --}}
+      {{#ifEquals type "vendor"}}
+        {{#ifEquals order.status "fulfilled"}}
+          <form action="/vendor/allorders/{{order._id}}/setStatus/complete" method="post">
+            <center><button type="submit" class="btn btn-primary" style="color:white ;border:none;background-color: rgb(245, 43, 43);">COMPLETE</button></center>
+          </form>
+        {{else}}
+          {{#ifEquals order.status "outstanding"}}
+            <form action="/vendor/allorders/{{order._id}}/setStatus/fulfilled" method="post">
+            <center><button type="submit" class="btn btn-primary" style="color:white ;border:none;background-color: rgb(28, 32, 247);">FULLFILED</button></center>
+            </form>
+          {{/ifEquals}} 
+        {{/ifEquals}} 
+
+      {{else}}
+          {{#ifEquals order.status "outstanding"}}
+            <center><a href="/customer/allorders/{{order._id}}/modifyOrder" onclick="return confirm('Recent Order can be modified, are you sure? This May Delay Your Order')" class="btn btn-primary">Modify Order</a></center>
+            <br>
+            <form action="/customer/allorders/{{order._id}}/CancelOrder" method="post">
+              <center><button type="submit" onclick="return confirm('Cancel Order Now?')" class="btn btn-primary" style="border:None; color:white;background-color:rgb(168, 29, 29);">Cancel Order</button></center>
+            </form>
+          {{/ifEquals}} 
+
+      {{/ifEquals}} 
+
+
+      
+      

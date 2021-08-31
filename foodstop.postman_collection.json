@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "bd72ee2e-1696-4522-8027-2fbbcc61fbe2",
+		"name": "foodstop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "view snack menu",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{herokuapp}}/customer/menu",
+					"host": [
+						"{{herokuapp}}"
+					],
+					"path": [
+						"customer",
+						"menu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view snack detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{herokuapp}}/customer/menu/:snack_id",
+					"host": [
+						"{{herokuapp}}"
+					],
+					"path": [
+						"customer",
+						"menu",
+						":snack_id"
+					],
+					"variable": [
+						{
+							"key": "snack_id",
+							"value": "10001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "start new order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{herokuapp}}/customer/menu/:snack_id/startOrder",
+					"host": [
+						"{{herokuapp}}"
+					],
+					"path": [
+						"customer",
+						"menu",
+						":snack_id",
+						"startOrder"
+					],
+					"variable": [
+						{
+							"key": "snack_id",
+							"value": "10001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "set van status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": [{\"longitude\": \"144.960974\", \"latitude\":\"-37.7983459\"}],\r\n    \"readyForOrder\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{herokuapp}}/vendor",
+					"host": [
+						"{{herokuapp}}"
+					],
+					"path": [
+						"vendor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list outstanding orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{herokuapp}}/vendor/orders/outstanding",
+					"host": [
+						"{{herokuapp}}"
+					],
+					"path": [
+						"vendor",
+						"orders",
+						"outstanding"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mark an order as fullfilled",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullfilled\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{herokuapp}}/vendor/orders/:_id/setStatus",
+					"host": [
+						"{{herokuapp}}"
+					],
+					"path": [
+						"vendor",
+						"orders",
+						":_id",
+						"setStatus"
+					],
+					"variable": [
+						{
+							"key": "_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "snack_id",
+			"value": "10001"
+		},
+		{
+			"key": "url",
+			"value": "http://foodstopapp.herokuapp.com"
+		},
+		{
+			"key": "herokuapp",
+			"value": "http://foodstopapp.herokuapp.com"
+		}
+	]
+}

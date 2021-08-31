@@ -1,0 +1,161 @@
+
+
+  <html>
+    <link href="/css/vendor.css" rel="stylesheet">
+    <link href="/css/van_locator.css" rel="stylesheet">
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyC5Gi_ynbhfA6popE_wamBgpGrA4Wc6-QM"></script>
+    <script src="/js/van_locatorjs.js"></script>
+    <!--Nav Bar Contents in father html-->
+    
+
+    <body>
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="container">
+        <h1 style="font-weight:1000">VENDOR CENTER</h1>
+        <hr class="featurette-divider">
+        <div class="jumbotron" >
+            <h1 style="font-weight:1000">{{van.name}}</h1> 
+            <h1> Welcome Back!</h1>
+              <script>
+                function hideMap() {
+                  var mapDiv = document.getElementById("locator_map");
+                  mapDiv.style.display = "none";
+                  var buttonDiv = document.getElementById("show_map_button");
+                  buttonDiv.style.display = "block";
+                }
+
+                function showMap() {
+                  var mapDiv = document.getElementById("locator_map");
+                  mapDiv.style.display = "block";
+                  var buttonDiv = document.getElementById("show_map_button");
+                  buttonDiv.style.display = "none";
+                }
+
+                function uploadLocation() {
+                  var url = "/vendor/setVanLocation"
+                  var loc = document.getElementById("info").innerHTML.split(", ")
+                  var address = document.getElementById("address_input").value.replace(' ', '_');
+                  url = url + "/" + loc[0] + "/" + loc[1] + "/" + address
+                  window.location.href = url
+                }
+              </script>
+              <a id="show_map_button" class="btn btn-primary" onclick="showMap()"  role="button" style="width: 100%; left: 0;">Edit Van Location &raquo;</a>
+              <div id="locator_map" class="container" style="display:none;">
+                <div id="mapCanvas"></div>
+                <div id="infoPanel" class="container">
+                  <label style="font-size: large;">Enter Current address:</label>
+                  <input class="form-control" id="address_input" type="text">
+                  <label style="font-size: large;">Current position:</label><b></b>
+                  <div id="info"></div>
+                </div>
+                {{!-- we need some way to set location here!!, replacing href="/customer/menu/" --}}
+                <a class="btn btn-primary" onclick="uploadLocation()"                 role="button" style="width: 45%; left: 0; ">Upload Van Location &raquo;</a>
+                <a class="btn btn-primary" onclick="hideMap()"                        role="button" style="width: 45%; left: 0; float: right;">Cancel editing &raquo;</a>
+              </div>
+          <hr class="featurette-divider">
+          <a class="btn btn-primary" href="/vendor/menu" role="button" style="width: 100%;left:0;">Edit Van Menu &raquo;</a>
+          <br>
+        </div>
+      </div>
+
+
+    {{!-- outstanding orders --}}
+      <div class="container">
+        <h1 style="font-weight:1000">OutStanding Orders</h1>
+        <hr class="featurette-divider">
+        <!--row of columns -->
+        <div class="jumbotron" >
+          <div>
+            {{#if orders}}
+              <ul class = "item" style="flex-direction:column;">
+                {{#each orders}}
+                  {{#if (IfinProgress this.status)}}
+                    <div class="item" style="margin: 10px">
+                      <a href="/vendor/allorders/{{this._id}}">
+                        <ul class="item" style="padding:5px">
+                            <div class="item" style="background:none;padding: 5px; margin:5px; text-align:center">
+                              
+                              <h3 class=>VAN: {{this.van_id}}</h3>
+
+                              {{#ifEquals this.status "outstanding"}}
+                                <h1 style="color:rgb(88, 255, 82)" >OUTSTANDING</h1>
+                              {{/ifEquals}}
+                              {{#ifEquals this.status "fulfilled"}}
+                                <h1 style="color:rgb(68, 81, 255)" >FULFILLED</h1>
+                              {{/ifEquals}}
+                              {{#ifEquals this.status "complete"}}
+                                <h1 style="color:black" >COMPLETE</h1>
+                              {{/ifEquals}}
+                              {{#ifEquals this.status "cancelled"}}
+                                <h1 style="color:rgb(255, 83, 83)" >CANCELLED</h1>
+                              {{/ifEquals}}
+
+                              
+                              <h4 class="time">{{prettifyDate this.timestamp}}</h4>
+
+                              <center><p>Total Price: ${{this.total}}.00</p></center>
+                            </div>
+                            {{#each this.goods}}
+                              <div class = "item" style="padding: 5px; margin:5px; ">
+                                    <img class="itemImage" src="/{{this.item.picture}}" alt="Food Image">
+                                    <p>{{this.item.name}}</p>
+                                    <p>${{this.item.price}}</p>
+                                    <p>Quantity: {{this.quantity}}<p>
+                              </div>
+                            {{/each}}
+                        </ul>
+                          
+                      </a>
+                    </div>
+                    {{/if}}
+                  {{/each}}
+                </ul>
+            {{else}}
+                <p>No Active Orders.</p>
+            {{/if}}
+          </div>
+          <a class="btn btn-primary" href="/vendor/allorders/outstanding" role="button" style="width: 100%;left:0;">ALL OutStandings &raquo;</a>
+        </div> 
+      </div>
+      
+
+
+    <div class="container">
+      <h1 style="font-weight:1000">History Orders</h1>
+      <hr class="featurette-divider">
+      <center>
+        <div class="container">
+          <!--row of columns -->
+          
+          <div class="jumbotron" >
+            <div class="row">
+                  <a class="btn btn-primary" href="/vendor/allorders" role="button">Order History &raquo;</a>
+            </div>
+          </div> 
+        </div>
+      </center>
+    </div>
+
+    <!--footer contents in father html-->
+    <div class="container">
+      <h1 style="font-weight:1000">Others</h1>
+      <hr class="featurette-divider">
+      <center>
+        <div class="jumbotron" >
+          {{#if van.readyForOrder}}
+          <form action="/vendor/closeBusiness" method="get">
+            <button class="btn btn-primary" role="button" onclick="return confirm('ShutDown Business Now?')" style="color:rgb(255, 255, 255);background-color:rgb(37, 22, 255);">ShutDown Business</button>
+          </form>
+          {{else}}
+          <form action="/vendor/openBusiness" method="get">
+            <button class="btn btn-primary" role="button" onclick="return confirm('Open Business Now?')" style="color:rgb(0, 0, 0);background-color:rgb(82, 248, 104);">Open For Business</button>
+          </form>
+          {{/if}}
+          <form action="/vendor/logout" method="post">
+            <button class="btn btn-primary" role="button" onclick="return confirm('Log Out Now?')" style="color:white;background-color:rgb(168, 29, 29);">Log Out</button>
+          </form>
+        </div>
+      </center>
+    </div>
+  </body>
+</html>

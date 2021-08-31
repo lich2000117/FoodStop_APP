@@ -1,0 +1,32 @@
+<!DOCTYPE html>   
+<html>   
+<head>  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+  <title> Customer Login </title>  
+  <link href="/css/loginPage.css" rel="stylesheet">
+  
+</head>    
+<body>   
+  <div class="container">
+    <div class="jumbotron"> 
+    <center> 
+        <h2> Customer Login </h2> 
+    </center>   
+    <form method="post" action="/customer/login">  
+        <div class="loginBox">   
+          
+            <label>EMAIL</label>   
+            <input type="text" placeholder="Sample: abc@123.com" name="email" required>  
+            <label>PASSWORD</label>   
+            <input type="password" placeholder="Sample: 123" name="password" required>
+            <br>
+            <a href="/contact"> <b>Forgot password? </b></a>   
+            <button type="submit" class="btn btn-lg btn-default">Login</button>  
+            <center> <br><a href="/customer/register">Register Here</a>  </center> 
+        </div>   
+    </form>  
+    </div>   
+    </div>
+</body>     
+</html>  

@@ -1,0 +1,376 @@
+/*Main Father Body*/
+
+
+:root{
+  --SecondaryColors: rgba(190, 195, 219, 0.301);
+  --ButtonColors:rgba(197, 197, 197, 0.685);
+  --fS16px:16px;
+}
+
+/* Center the loader */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
+}
+
+
+html{
+  overflow-x: hidden;
+}
+
+/* html color*/
+a, a:focus, a:hover {
+  color: #fff;
+}
+/* html color*/
+
+body {
+    overflow-x: hidden; /* Prevent scroll on narrow devices */
+    width: 100wh;
+    padding-top: 50px;
+    height: 100vh;
+    color: #fff;
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+}
+footer {
+  padding: 30px 0;
+}
+
+/* Main Button Style */
+.btn-primary {
+  color: rgb(0, 0, 0);
+  background: white;
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  -moz-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+  border-color: rgb(255, 255, 255);
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #b6b6b6a9;
+  font-size: 20px;
+  border: none;
+  color: white;
+}
+
+.btn {
+  padding-top: 15px;
+  width: 70%;
+  height: auto;
+  margin-top: 20px;
+  height: 55px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  text-shadow: none;
+  border: 1px solid #fff;
+  font-size: 15px;
+  border-radius: 6px;
+  background-color: #fff;
+  font-family: 'Pangolin', cursive;
+}
+
+
+.info_text{
+  color: #333;
+}
+
+#info_link{
+  color: #23A6D5;
+}
+
+
+/** Pointer**/
+body {
+  cursor: url('../../cursor/cursor_1.png'), default;
+}
+a:hover{
+  cursor:url('../../cursor/cursor_2.png'), pointer;
+  text-decoration: none;
+  text-decoration: underline;
+}
+/** LinkPointer**/
+
+
+/*Custom Style inheritaged from jumbotron.css*/
+.jumbotron {
+  padding-bottom: 50px;
+  margin: 50px;
+  color: inherit;
+  background-color: var(--SecondaryColors);
+  padding:50px;
+  border-radius: 60px;
+  align-self: center;
+}
+
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+
+  .navbar-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+  }
+  .navbar-inverse {
+    background-color: rgb(255, 255, 255);
+    border: 0ch;
+  }
+  .navbar .nav > li > a:hover {
+    color: rgb(255, 255, 255);
+    background-color: #8f8e8e94;
+  }
+  .navbar .nav >li > a:active{
+    color: rgb(14, 14, 14);
+    background-color: #ffffff;
+  }
+  .navbar .nav > li > a{
+    color: #7e7e7e;    
+  }
+  .navbar .nav >li >a:visited{
+    background-color: #c7c7c7;
+  }
+  .navbar-toggle {
+    background-color: #c0bfbf63;
+    border:0ch;
+  }
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+  
+
+nav.navbar-bottom{
+  position: fixed;
+  bottom:0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  align-items: center;
+}
+
+div.navbar-bottom{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  color: #333;
+}
+
+ul.navbar-bottom>a{
+  color: #333;
+  font-size: medium;
+}
+
+
+
+
+/*Side Bar Customization*/
+.list-group-item{
+  z-index: 2;
+  color: #fff;
+  background-color:var(--SecondaryColors);
+  margin-bottom: 0ch;
+  border: 0ch;
+}
+a.list-group-item{
+  color: rgb(255, 255, 255);
+}
+.menuRight{
+  right: -150px;
+}
+.menuLeft{
+  right: 0px;
+}
+
+
+/* Drop Down Customization Index*/
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+  z-index: 2;
+  color: #fff;
+  background-color: #8f8e8e94;
+  border-color: #8f8e8e94;
+}
+.dropdown-menu {
+  background-color:var(--SecondaryColors);
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+  
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
+  .jumbotron{
+    margin:10px;
+    padding:20px;
+    border-radius: 40px;
+  }
+}
+
+/*map test*/
+#map {
+  height: 100%;
+  /* The height is hight of the web page */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+/*map test end*/
+
+
+/*Color Effect */
+@-webkit-keyframes Gradient {
+  0% {
+      background-position: 0% 50%
+  }
+
+  50% {
+      background-position: 100% 50%
+  }
+
+  100% {
+      background-position: 0% 50%
+  }
+}
+
+@-moz-keyframes Gradient {
+  0% {
+      background-position: 0% 50%
+  }
+
+  50% {
+      background-position: 100% 50%
+  }
+
+  100% {
+      background-position: 0% 50%
+  }
+}
+
+@keyframes Gradient {
+  0% {
+      background-position: 0% 50%
+  }
+
+  50% {
+      background-position: 100% 50%
+  }
+
+  100% {
+      background-position: 0% 50%
+  }
+}
+
+
+
+
+/* Fade-in Animation*/
+.fade-in {
+  animation: fadeIn ease var(--time);
+  -webkit-animation: fadeIn ease var(--time);
+}
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}

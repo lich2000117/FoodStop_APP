@@ -1,0 +1,45 @@
+<!DOCTYPE html>   
+<html>   
+<head>  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+  <title> Register </title>  
+  <link href="/css/loginPage.css" rel="stylesheet">
+  <script src="/js/register.js"></script>
+  
+</head>    
+<body>   
+  <div class="container">
+    <div class="jumbotron"> 
+    <center> 
+        <h2> Register </h2> 
+    </center>   
+    <form method="post" action="/customer/signup">   
+        <div class="loginBox">   
+          <p>Personal Detail</p>
+            <label>FirstName</label>   
+            <input type="text" placeholder="Sample: JackMa" name="firstName" required> 
+            <label>LastName</label>   
+            <input type="text" placeholder="Sample: JackMa" name="lastName" required> 
+          <hr>
+          <p>Account Detail</p>
+            <label>EMAIL</label>   
+            <input type="text" placeholder="foodstop@fstp.com" name="email" type="email" required>  
+            <label>PASSWORD</label>   
+            <input type="password" id="password" onkeyup="passwordCheck()" onmousemove="passwordCheck()" placeholder="Enter Your Password" name="password" required>
+            <label class = "alert alert-danger"   id="passwordInstruction"  style="text-align: center;margin-top:10px; padding: 5px; margin-bottom: 0px;">Password should countain at least a letter, a number, and over 8 chars in length</label>
+            <label class = "alert alert-success"  id="passwordCorrect"      style="text-align: center;margin-top:10px; padding: 5px; margin-bottom: 0px;" hidden>this is a strong password.</label>
+            <label>Confirm Password</label>   
+            <input type="password" id="confirm_password" onkeyup="passwordCheck()" onmousemove="passwordCheck()" placeholder="Re-Enter Your Password" name="Confirmpassword" required>
+            <label class = "alert alert-danger"   id="passwordConInstruction"  style="text-align: center;margin-top:10px; padding: 5px; margin-bottom: 0px;" hidden>There is difference between two passwords.</label>
+            <label class = "alert alert-success"  id="passwordConCorrect"      style="text-align: center;margin-top:10px; padding: 5px; margin-bottom: 0px;">Two password are same.</label>
+            <br>
+            <a href="/contact"> <b>Need Help? </b></a>  <br> 
+            <button id="btnSubmit" onclick="checkPass()" type="submit" class="btn btn-lg btn-default">Register Now</button>  
+            <center> <br><a href="/login">Login with Existing Account</a>  </center> 
+        </div>   
+    </form>  
+    </div>   
+    </div>
+</body>    
+</html>  

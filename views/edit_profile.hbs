@@ -1,0 +1,32 @@
+<!DOCTYPE html>   
+<html>   
+<head>  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+  <title> Edit Profile </title>  
+  <link href="/css/loginPage.css" rel="stylesheet">
+  <script src="/js/register.js"></script>
+  
+</head>    
+<body>   
+  <div class="container">
+    <div class="jumbotron"> 
+    <center> 
+        <h2> Edit Profile </h2> 
+    </center>   
+    <form method="post" action="/customer/changeName">   
+        <div class="loginBox">   
+          <p>New Detail</p>
+            <label>FirstName</label>   
+            <input type="text" placeholder="Sample: JackMa" name="firstName" required> 
+            <label>LastName</label>   
+            <input type="text" placeholder="Sample: JackMa" name="lastName" required> 
+         
+            <a href="/contact"> <b>Need Help? </b></a>  <br> 
+            <button id="btnSubmit" type="submit" class="btn btn-lg btn-default">Update Now</button>  
+        </div>   
+    </form>  
+    </div>   
+    </div>
+</body>    
+</html>  

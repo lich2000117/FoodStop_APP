@@ -1,0 +1,52 @@
+<html>
+
+    <script src="/js/menujs.js"></script>
+    <script src="/js/helpers.js"></script>
+    <link href="/css/vendor.css" rel="stylesheet">
+    <link href="/css/list_page.css" rel="stylesheet">
+
+    <script src="/js/vendor.js"></script>
+        <script>
+          hideNav()
+    </script>
+
+    {{#if anchor}}
+      <script>
+        window.onload = window.location.hash = '#{{anchor}}';
+        </script>
+    {{/if}}
+
+
+      <hr class="featurette-divider">
+        <center>
+          <h1> Available Menu </h1>
+        </center>
+      <hr class="featurette-divider">
+
+      <center><h2>Please Set Available Food</h2></center>
+
+      <ul class="item">
+        {{#each snacks}}
+          <a id="{{this.snack_id}}" href="/customer/menu/{{this.snack_id}}">
+          <div class="item">
+              <img class="itemImage" src="/{{this.picture}}" alt="Food Image">
+              <p class="item-name">{{this.name}}</p>
+              <p class="item-name" style = "color: black;">${{this.price}}</p>
+              <hr>
+            </a>
+            {{#ifSnackAvailable this ../currentAva}}
+            <form action="/vendor/menu/{{this.snack_id}}/unavailable" method="get">
+                <button name="submitButton" id="but" type="submit" style="margin:2px;height:30px; width:120px;border:none; border-radius:5px 5px 5px; color:crimson"
+                 class="btn btn-primary btn2">STOP OFFER</button> 
+              </form>
+            {{else}}
+            <form action="/vendor/menu/{{this.snack_id}}/available" method="get">
+                <button name="submitButton" id="but" type="submit" style="margin:2px;height:30px; width:120px;border:none; border-radius:5px 5px 5px; color:rgb(44, 170, 128)"
+                 class="btn btn-primary btn2">START OFFER</button> 
+              </form>
+            {{/ifSnackAvailable}}
+
+          </div>
+        {{/each}}
+      </ul>
+</html>

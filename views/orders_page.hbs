@@ -1,0 +1,48 @@
+  <link href="/css/list_page.css" rel="stylesheet">
+      <hr class="featurette-divider">
+      <center><h1> {{lstName}}'s {{Title}} </h1></center>
+      
+      {{#ifEquals router "vendor"}}
+        <script src="/js/vendor.js"></script>
+        <script>
+          hideNav()
+        </script>
+      {{/ifEquals}}
+      
+
+      <ul class = "item" style="flex-direction:column">
+      {{#each orders}}
+      <hr class="featurette-divider">
+        <a href="/{{{../router}}}/allorders/{{this._id}}">
+          <div class="item">
+            <h3>{{prettifyDate this.timestamp}}</h3>
+            
+            {{#ifEquals this.status "outstanding"}}
+              <h1 style="color:rgb(88, 255, 82)" >OUTSTANDING</h1>
+            {{/ifEquals}}
+            {{#ifEquals this.status "fulfilled"}}
+              <h1 style="color:rgb(32, 47, 255)" >FULFILLED</h1>
+            {{/ifEquals}}
+            {{#ifEquals this.status "complete"}}
+              <h1 style="color:black" >COMPLETE</h1>
+            {{/ifEquals}}
+            {{#ifEquals this.status "cancelled"}}
+              <h1 style="color:rgb(241, 55, 55)" >CANCELLED</h1>
+            {{/ifEquals}}
+
+            <ul class="item" style="padding:5px">
+            {{#each this.goods}}
+              <div class = "item" style="padding: 5px; margin:5px">
+                    <img class="itemImage" src="/{{this.item.picture}}" alt="Food Image">
+                    <p class=>{{this.item.name}}</p>
+                    <p class=>${{this.item.price}}</p>
+                    <span class="text">Quantity: {{this.quantity}}</span>
+              </div>
+            {{/each}}
+            </ul>
+            <center><h3>Total Price: ${{this.total}}.00</h3></center>
+            <center><a href="/{{{../router}}}/allorders/{{this._id}}" class="btn btn-primary">Order Detail</a></center>
+         </div>
+        </a>
+      {{/each}}
+      </ul>

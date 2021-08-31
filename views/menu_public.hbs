@@ -1,0 +1,37 @@
+<html>
+
+    <script src="/js/menujs.js"></script>
+    <script src="/js/helpers.js"></script>
+    <link href="/css/list_page.css" rel="stylesheet">
+
+    {{#if anchor}}
+      <script>
+        window.onload = window.location.hash = '#{{anchor}}';
+        </script>
+    {{/if}}
+
+
+      <hr class="featurette-divider">
+        <center><h1> General Menu </h1></center>
+      <hr class="featurette-divider">
+
+      <ul class="item">
+        {{#each snacks}}
+          <a id="{{this.snack_id}}" href="/customer/menu/{{this.snack_id}}">
+          <div class="item">
+              <img class="itemImage" src="/{{this.picture}}" alt="Food Image">
+              <p class="item-name">{{this.name}}</p>
+              <p class="item-name" style = "color: black;">${{this.price}}</p>
+              <hr>
+            </a>
+              <div class="jumbotron" style="padding:0; height:auto; width:auto;">
+                <a id="{{this.snack_id}}" href="/customer/menu/{{this.snack_id}}">
+                <button name="submitButton" style="margin:2px;height:30px; width:120px;border:none; border-radius:5px 5px 5px;"
+                   class="btn btn-primary btn2">Snack Detail</button> </a>
+              </div>
+          </div>
+        {{/each}}
+      </ul>
+      <center><a href="/home" class="btn btn-primary btn2" style="margin:2px;height:35px; border:none; border-radius:5px 5px 5px;">Pick A VAN</a> </center>
+    
+</html>

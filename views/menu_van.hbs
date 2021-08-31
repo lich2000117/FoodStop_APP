@@ -1,0 +1,45 @@
+<html>
+
+    <script src="/js/menujs.js"></script>
+    <script src="/js/helpers.js"></script>
+    <link href="/css/list_page.css" rel="stylesheet">
+
+    {{#if anchor}}
+      <script>
+        window.onload = window.location.hash = '#{{anchor}}';
+        </script>
+    {{/if}}
+
+
+      <hr class="featurette-divider">
+        <center><h1> Menu </h1></center>
+      <hr class="featurette-divider">
+
+      <ul class="item">
+        {{#each snacks}}
+          <a id="{{this.snack_id}}" href="./menu/{{this.snack_id}}">
+          <div class="item">
+              <img class="itemImage" src="/{{this.picture}}" alt="Food Image">
+              <p class="item-name">{{this.name}}</p>
+              <p class="item-name" style = "color: black;">${{this.price}}</p>
+              <hr>
+            </a>
+              <div class="jumbotron" style="padding:0; height:auto; width:auto;">
+                <h2 style = "color: black;" name="quantity"> {{findQuantityInCart @index this.snack_id ../cart}} </h2>
+              </div>
+              <form action="./addCart/{{this.snack_id}}" method="post">
+                <button name="submitButton" id="but" type="submit" style="margin:2px;height:30px; width:120px;border:none; border-radius:5px 5px 5px;" 
+                    onclick="this.form.submit(); addNum({{@index}}, {{this.price}})" class="btn btn-primary btn2">Add +</button> 
+              </form>
+              <form action="./removeCart/{{this.snack_id}}" method="post">
+                <button name="submitButton" id="but" type="submit" style="margin:2px;height:30px;width:120px;border:none; border-radius:5px 5px 5px;" 
+                    onclick="this.form.submit(); removeNum({{@index}},{{this.price}})" class="btn btn-primary btn2">Remove -</button> 
+              </form>
+          </div>
+        {{/each}}
+      </ul>
+      
+      <center name="submitButton" id="checkoutbutton"><a href="./cart" id="checkoutAmount" class="btn btn-primary" style="font-size:large; width: 100%; position:absolute; bottom:0; left:0;"> ${{total}} Check Out</a> </center>
+      
+    
+</html>

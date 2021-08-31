@@ -1,0 +1,121 @@
+<!--A base template including navigation bar and footer.-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="A base template for website with nav bar and footer">
+    <meta name="author" content="lich2000117@gmail.com;">
+    <link rel="icon" href="/webicon.png">
+    <title>Food Stop</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+
+
+<!-- styles for this template -->
+<link href="/css/main.css" rel="stylesheet">
+{{{CSS}}}
+
+{{!-- Loading Animation --}}
+
+
+<!--Top Nav Bar Contents-->
+<div id="loader" style="display:none"></div>
+<nav class="navbar navbar-inverse navbar-fixed-top" id="top-nav-bar">
+    <div class="container">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Food Stop</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/home">MAP</a></li>
+              <li><a href="/customer/menu">MENU</a></li>
+              <li><a href="/customer">MY PAGE</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/contact">Contact Us</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">VENDOR</li>
+                  <li><a href="/vendor/">Vendor APP</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+</nav>
+
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+<a href="/vendor"><button id="goBackButton" type="button" class="btn btn-light" style="border-radius: 50%; position:fixed; width: 100px;height: 100px;display: none;margin-top: 0px;padding-top: 5px;">HOME</button> 
+</a>
+
+
+<!--Nav Bar Contents-->
+
+<div class="fade-in" style="--time:0.8s;">
+{{#if FailMessage}}
+  <div class = "alert alert-danger" style="text-align: center;">{{FailMessage}}</div>
+{{/if}}
+{{#if SuccessMessage}}
+  <div class = "alert alert-success" style="text-align: center;">{{SuccessMessage}}</div>
+{{/if}}
+  {{{body}}}
+
+
+</div>
+
+
+
+<!-- FOOTER -->
+<div class="container" style="margin-top: 50px;">
+    <footer>
+      
+        <hr class="featurette-divider">
+        <div style="text-align: center;">
+        <p> Copyright &copy; 2005-2021 FAT. All Rights Reserved.</p>
+        <p><a href="https://foodstopapp.herokuapp.com/">@FoodStop</a> </p>
+        </div>
+    </footer>
+</div>
+<!-- FOOTER -->
+
+{{!-- 
+<!-- Bottom Nav Bar For Mobile Use -->
+<nav class="navbar-bottom">
+            <div class="navbar-bottom">
+              <ul class="navbar-bottom"><a href="/home">Home</a></ul>
+              <ul class="navbar-bottom"><a href="/customer/menu">Menu</a></ul>
+              <ul class="navbar-bottom"><a href="/customer"><i class="material-icons">shopping_cart</i></a></ul>
+            </div>
+  </nav> --}}
+
+  
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/static/bootstrap/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="/js/bootstrap.min.js"></script>
+    {{{ js-addon }}}

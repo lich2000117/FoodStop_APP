@@ -1,0 +1,64 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 0px;
+}
+
+nav{
+  display: none;
+}
+
+
+ul.item{
+  align-self: center;
+  display: flex;
+  padding: 5px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  flex: 1;
+}
+
+.jumbotron p{
+  padding: 0;
+  margin: 0;
+  font-size: medium;
+}
+
+.time p{
+  text-align: left;
+}
+
+div.item{
+  margin: 2px;
+  width: auto;
+  padding: 0px;
+  border-radius: 15px;
+  flex: 1;
+  flex-direction: row;
+  background-color: var(--SecondaryColors);
+}
+
+.btn{
+  border: none;
+}
+
+.itemImage{
+  height: 70px;
+  width: 70px;
+}
+
+@media (max-width: 768px) {
+  .itemImage{
+    height: 40px;
+    width: 40px;
+  }
+
+  .jumbotron p{
+    padding: 0;
+    margin: 0;
+    font-size: smaller;
+  }
+  h3{
+    font-size: smaller;
+  }
+}
